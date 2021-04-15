@@ -4,6 +4,11 @@ import java.util.*;
 
 public class RequestGoogle {
 	
+	/**
+	 * Second step to deal with inputed keyword(s)
+	 * We add some infos to the keyword and make a url to post to Google.
+	 */
+	
 	private String movie;
 	
 	private String infoOfMovie ="";
@@ -15,11 +20,20 @@ public class RequestGoogle {
 	
 	public RequestGoogle() {
 		
+		/**
+		 * Constructor
+		 * only function is to assign keyword to movie
+		 */
 		this.movie = IMDBQuery.searchKeyword;
 		
 	}
 	
 	public void Request() {
+		
+		/**
+		 * Main method of this class.
+		 * Calling other method is his only function.
+		 */
 		
 		RequestDir();
 		RequestWri();
@@ -30,6 +44,10 @@ public class RequestGoogle {
 	}
 	
 	private void SetKeywordToGoogle() {
+		
+		/**
+		 * This method is used to produce the composite and multiple keyword through adding modifying words and infos of movie.
+		 */
 		
 		String erasesite1 = "+-site:www.imdb.com";
 		
@@ -49,6 +67,15 @@ public class RequestGoogle {
 	}
 	
 	private void RequestDir() {
+		
+		/**
+		 * The method works on the Director data particularly
+		 * 
+		 * 1. set the directors' infos of the movie and call GoogleQuery, 
+		 * 2. take the temporary data from it to clean and modify
+		 * 3. transfer them into result array-list
+		 * 
+		 */
 		
 		int countOfElements = IMDBQuery.Directors.size();
 		
@@ -84,6 +111,10 @@ public class RequestGoogle {
 	
 	private void RequestWri() {
 		
+		/**
+		 * Same as above part, only different in working part.
+		 */
+		
 		int countOfElements = IMDBQuery.Writers.size();
 		
 		for(int i = 0; i < countOfElements; i++) {
@@ -115,6 +146,11 @@ public class RequestGoogle {
 	}
 	
 	private void RequestSta() {
+		
+		/**
+		 * Same as above part, only different in working part.
+		 */
+		
 		
 		int countOfElements = IMDBQuery.Stars.size();
 		
@@ -148,7 +184,14 @@ public class RequestGoogle {
 	
 	private void removeSimilar() {
 		
+		/**
+		 * This method is going to remove the similar result in our data.
+		 * While there are two same URL data in different result, we remove the weight-lighter one.
+		 */
+		
     	//***call this before rank elements
+		
+		
     	int index = 0;
     
     	while(index < Results.size()) {

@@ -10,13 +10,6 @@ public class IMDBQuery {
 	
 	/** This class is the first step to deal with the keyword(s) from user.
 	 * We post the keywords to IMDB.com for the information and store them in static array-lists. 
-	 * @param searchKeyword keyword inputed from user
-	 * @param url the URL with keyword inputed by user in imdb searching page
-	 * @param content  the content of the searching result
-	 * @param IMDB  the first page of IMDB
-	 * @param Director  infos of the directors
-	 * @param Writers  infos of the writers
-	 * @param Stars  infos of the writers
 	 */
 
 	public static String searchKeyword;
@@ -83,7 +76,7 @@ public class IMDBQuery {
 		
 		/**
 		 * This method is used to acquire the source code of the page which we founded by fetchContent_url()
-		 * @throws trun to the specific movie page
+		 * @throws if no found in IMDB.com, throw to a specific page which is the movie we love the most
 		 * @return the source code of the page
 		 */
 		
@@ -128,10 +121,7 @@ public class IMDBQuery {
 		 * This method is used to analyze the content of the page.
 		 * Get the infos of directors, writers and stars and store them in temporary arrays.
 		 * Then, call addList() to add infos into static array-lists with given weight. 
-		 * @param arrayDirector to store infos of directors temporarily.
-		 * @param arrayWriter to store infos of writers temporarily.
-		 * @param arrayStar to store infos of stars temporarily.
-		 * @throws propose infos from the specific movie which we like.
+		 * 
 		 */
 		
 		if(content==null) {
@@ -212,10 +202,11 @@ public class IMDBQuery {
 												String type){
 			/**
 			 * This method is used to add item which are in the temporary array into the static array-lists with given weight.
-			 * @param weightDir given weight of directors.
-			 * @param weightWri given weight of writers.
-			 * @param weightSta given weight of stars.
+			 * @param inputArray a temporary array to store the infos caught from movie's infos page.
+			 * @param outputList a static array-list to store movie's infos 
+			 * @param the type of infos decide which the weight are going to be inputed. 
 			 */
+			
 			double typeWeight;
 			double[] weightDir = {1, 0.7, 0.65};
 			double[] weightWri = {1, 0.85, 0.8};

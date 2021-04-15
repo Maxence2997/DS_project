@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-	
+	/**
+	 * @author Yang, Jyun-An
+	 * @since JRE 14
+	 */
 	
 	public static void main(String[] args) {
 		
@@ -19,23 +22,23 @@ public class Main {
 			
 			try {
 				try {
-					IMDBQuery X = new IMDBQuery(keyword);
-					X.query();
+					IMDBQuery IMDB_A = new IMDBQuery(keyword);
+					IMDB_A.query();
 					//time2 = System.currentTimeMillis();							   
 					
 				}
 				catch(FileNotFoundException fileNotFound) {
 					keyword = "Shootem+Up";
-					IMDBQuery X = new IMDBQuery(keyword);
-					X.query();
+					IMDBQuery IMDB_B = new IMDBQuery(keyword);
+					IMDB_B.query();
 				}
 				//time2 = System.currentTimeMillis();							   
 				
 				//System.out.println("第一階段"+(time2-time1)/1000+"秒");		   
 				
 				
-				RequestGoogle Y = new RequestGoogle();
-				Y.Request();
+				RequestGoogle Google = new RequestGoogle();
+				Google.Request();
 				//time3 = System.currentTimeMillis();	
 				
 				//System.out.println("第二階段"+(time3-time2)/1000+"秒");		   

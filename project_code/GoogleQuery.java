@@ -23,24 +23,35 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class GoogleQuery {
-
+	/**
+	 * This class 
+	 * 
+	 */
 	public String url_google;
 	
 	public String Goolge = "https://www.google.com/search?q=";
 
 	public String content;
 	
-	public GoogleQuery(){
-		
-		this.url_google = "https://www.google.com/search?q=top+gun+Tom+Scott+'film'or'series'or'television'or'movie'+-site:www.imdb.com+-site:www.rottentomatoes.com+-site:wikipedia.org+-site:www.pinterest.com+-site:www.amazon.com";	
-	}
-    
 	
 	public GoogleQuery(String searchKeyword){
 		
 		this.url_google ="https://www.google.com/search?q=" + searchKeyword + "&oe=utf8&num=20";	
 	}
+	
+	
 
+	public GoogleQuery(){
+		
+		/**
+		 * Second constructor, only for testing
+		 */
+		
+		this.url_google = "https://www.google.com/search?q=top+gun+Tom+Scott+'film'or'series'or'television'or'movie'+-site:www.imdb.com+-site:www.rottentomatoes.com+-site:wikipedia.org+-site:www.pinterest.com+-site:www.amazon.com";	
+	}
+    
+	
+	
 	
 
 		private String fetchContent() throws IOException
